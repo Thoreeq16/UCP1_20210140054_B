@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <style>
+    /* CSS styling for the dashboard */
+    /* Navbar styles */
+    .navbar {
+      background-color: #f5f5f5;
+      padding: 10px;
+    }
+    
+    .nav-link {
+      margin-right: 10px;
+    }
+    
+    /* Header styles */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+    
+    /* Carousel styles */
+    .carousel {
+      /* Your carousel styles here */
+    }
+    
+    /* Card styles */
+    .card {
+      /* Your card styles here */
+    }
+    
+    /* Footer styles */
+    .footer {
+      background-color: #f5f5f5;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <span>A Day In My Life</span>
+    <a class="nav-link" href="#">NavLink 1</a>
+    <a class="nav-link" href="#">NavLink 2</a>
+    <a class="nav-link" href="#">NavLink 3</a>
+  </div>
+  
+  <div class="header">
+    <div>
+      <span id="greeting"></span>
+    </div>
+    <div>
+      <span id="currentDate"></span>
+      <span id="currentTime"></span>
+    </div>
+  </div>
+  
+  <div class="carousel">
+    <!-- Your carousel content here -->
+  </div>
+  
+  <div class="card">
+    <!-- Your card content here -->
+  </div>
+  
+  <div class="footer">
+    &copy; 2023 My Personal Website
+  </div>
+  
+  <script>
+    // JavaScript code to update greeting, date, and time
+    var greetings = {
+      morning: "Good morning",
+      afternoon: "Good afternoon",
+      evening: "Good evening"
+    };
+    
+    var currentDate = new Date();
+    var currentHour = currentDate.getHours();
+    var greeting;
+    
+    if (currentHour >= 5 && currentHour < 12) {
+      greeting = greetings.morning;
+    } else if (currentHour >= 12 && currentHour < 18) {
+      greeting = greetings.afternoon;
+    } else {
+      greeting = greetings.evening;
+    }
+    
+    document.getElementById("greeting").innerHTML = greeting;
+    document.getElementById("currentDate").innerHTML = currentDate.toDateString();
+    
+    setInterval(updateTime, 1000); // Update time every second
+    
+    function updateTime() {
+      var currentTime = new Date();
+      document.getElementById("currentTime").innerHTML = currentTime.toLocaleTimeString();
+    }
+  </script>
+</body>
+</html>
